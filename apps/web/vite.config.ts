@@ -48,6 +48,40 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
+  build: {
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
+        passes: 2,
+      },
+      mangle: {
+        safari10: true,
+      },
+    },
+    // Route chunks already split by autoCodeSplitting above; this buckets
+    // the shared vendor deps those chunks pull in so a change to app code
+    // doesn't bust the cache for the (much larger, rarely-changing) libs.
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (!id.includes('node_modules')) return undefined
+          if (id.includes('react-dom') || id.includes('/react/') || id.includes('scheduler')) {
+            return 'react-vendor'
+          }
+          if (id.includes('@tanstack')) return 'tanstack'
+          if (id.includes('@radix-ui')) return 'radix'
+          if (id.includes('@reduxjs') || id.includes('react-redux')) return 'redux'
+          if (id.includes('@react-pdf')) return 'pdf'
+          if (id.includes('recharts')) return 'charts'
+          if (id.includes('i18next')) return 'i18n'
+          if (id.includes('react-hook-form') || id.includes('@hookform')) return 'forms'
+          return undefined
+        },
+      },
+    },
+  },
   server: {
     port: 5173,
     // Bind all interfaces and accept *.localhost Host headers so
