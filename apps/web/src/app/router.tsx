@@ -4,6 +4,7 @@ import { queryClient } from './queryClient'
 import { store } from '@/store'
 import { restoreSession } from '@/store/slices/authSlice'
 import type { Session } from '@/core/auth/authStrategy'
+import { RouteLoadingFallback } from '@/shared/components/ui/RouteLoadingFallback'
 
 /**
  * `beforeLoad` (routes/_app/route.tsx) re-runs this on every navigation
@@ -29,6 +30,12 @@ export const router = createRouter({
     auth: { ensureSession },
   },
   defaultPreload: 'intent',
+  defaultPendingComponent: RouteLoadingFallback,
+  // Route chunks are code-split (autoCodeSplitting in vite.config.ts); avoid
+  // flashing the fallback for chunks that resolve near-instantly (cached,
+  // or already preloaded by defaultPreload: 'intent').
+  defaultPendingMs: 300,
+  defaultPendingMinMs: 200,
 })
 
 declare module '@tanstack/react-router' {

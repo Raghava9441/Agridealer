@@ -14,7 +14,11 @@ import { VitePWA } from 'vite-plugin-pwa'
  */
 export default defineConfig({
   plugins: [
-    TanStackRouterVite({ routesDirectory: './src/routes', generatedRouteTree: './src/routeTree.gen.ts' }),
+    TanStackRouterVite({
+      routesDirectory: './src/routes',
+      generatedRouteTree: './src/routeTree.gen.ts',
+      autoCodeSplitting: true,
+    }),
     react(),
     VitePWA({
       registerType: 'autoUpdate',
