@@ -94,5 +94,20 @@ export default defineConfig({
     environment: 'jsdom',
     globals: true,
     setupFiles: ['./src/shared/testing/setupTests.ts'],
+    coverage: {
+      provider: 'v8',
+      reporter: ['text', 'lcov'],
+      include: ['src/**/*.{ts,tsx}'],
+      exclude: ['src/**/*.d.ts', 'src/**/*.test.{ts,tsx}', 'src/routeTree.gen.ts', 'src/main.tsx', 'src/shared/testing/**'],
+      // Floors, not targets — set at/just below today's actual numbers so CI
+      // catches a regression without blocking on the (currently thin)
+      // baseline. Raise these as real coverage work lands.
+      thresholds: {
+        statements: 20,
+        branches: 40,
+        functions: 20,
+        lines: 20,
+      },
+    },
   },
 })

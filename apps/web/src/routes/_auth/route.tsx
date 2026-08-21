@@ -16,7 +16,7 @@ function AuthLayout() {
         <div className="w-full max-w-sm rounded-lg bg-surface p-8 text-center shadow-sm">
           <h1 className="text-lg font-semibold">Store not found</h1>
           <p className="mt-2 text-sm text-muted-foreground">
-            There's no dealer registered at this address. Check the link and try again.
+            There&apos;s no dealer registered at this address. Check the link and try again.
           </p>
         </div>
       </div>

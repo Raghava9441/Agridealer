@@ -42,3 +42,53 @@ jobs:
 
       - name: Test
         run: npm test
+
+      # Runs only apps/web's coverage script directly (not the root `npm
+      # run test` above) since apps/api has no coverage tooling configured
+      # yet — a workspace-wide `--coverage` flag would just no-op there.
+      - name: Test coverage (web)
+        run: npm run test:coverage --workspace=apps/web
+
+  # Builds and publishes apps/web's production image (Dockerfile added
+  # alongside this job). Only runs on main — PRs get build-and-test's
+  # verification, not a published image, since a PR from a fork can't get
+  # GHCR write access anyway and we don't want an image per PR commit.
+  publish-web-image:
+    needs: build-and-test
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: docker/metadata-action@v5
+        id: meta
+        with:
+          images: ghcr.io/${{ github.repository }}/web
+          tags: |
+            type=raw,value=latest
+            type=sha,format=short
+
+      # No VITE_* build-args wired up yet — Vite inlines them at build time
+      # (apps/web/Dockerfile), so this image ships with whatever defaults
+      # apps/web/src/bootstrap/config.ts falls back to. Add build-args here,
+      # sourced from repo/environment secrets, once a real deploy target's
+      # API origin and Sentry DSN are known.
+      - uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: apps/web/Dockerfile
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
