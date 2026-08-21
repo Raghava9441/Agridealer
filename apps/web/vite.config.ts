@@ -73,6 +73,7 @@ export default defineConfig({
           if (id.includes('@tanstack')) return 'tanstack'
           if (id.includes('@radix-ui')) return 'radix'
           if (id.includes('@reduxjs') || id.includes('react-redux')) return 'redux'
+          if (id.includes('@sentry')) return 'sentry'
           if (id.includes('@react-pdf')) return 'pdf'
           if (id.includes('recharts')) return 'charts'
           if (id.includes('i18next')) return 'i18n'

@@ -11,6 +11,8 @@ export interface AppConfig {
   environment: 'development' | 'production' | 'test'
   defaultLocale: string
   supportedLocales: readonly string[]
+  /** Unset in dev/most deploys — Sentry (src/monitoring/sentry.ts) stays inert without it. */
+  sentryDsn: string | undefined
 }
 
 /**
@@ -37,4 +39,5 @@ export const appConfig: AppConfig = {
   environment: (import.meta.env.MODE as AppConfig['environment']) ?? 'development',
   defaultLocale: 'en',
   supportedLocales: ['en', 'te', 'hi'],
+  sentryDsn: import.meta.env.VITE_SENTRY_DSN,
 }
