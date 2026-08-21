@@ -25,6 +25,44 @@ export default defineConfig({
       includeAssets: ['favicon.svg', 'favicon-32x32.png', 'favicon-16x16.png', 'apple-touch-icon.png'],
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
+        // The API lives on its own origin (apiBaseUrl, see bootstrap/config.ts)
+        // so these match by path rather than a build-time-known host — that
+        // works cross-origin because urlPattern callbacks run against every
+        // fetch event regardless of destination origin.
+        //
+        // Only tenant-wide reference data goes in the allow-list below
+        // (product catalog, public tenant info) — never transactional
+        // records like customers/inventory/invoices, where serving a stale
+        // balance or stock count could cause a real business error. Mirrors
+        // worklenz-frontend's split between its CACHEABLE_API_PATTERNS
+        // (reference data) and NEVER_CACHE_PATTERNS (auth, mutations).
+        runtimeCaching: [
+          {
+            urlPattern: ({ url, request }) =>
+              request.method === 'GET' && /\/products(?:$|\?)/.test(url.pathname + url.search),
+            handler: 'StaleWhileRevalidate',
+            options: {
+              cacheName: 'api-catalog',
+              expiration: { maxEntries: 100, maxAgeSeconds: 60 * 60 * 24 },
+            },
+          },
+          {
+            urlPattern: ({ url, request }) => request.method === 'GET' && url.pathname.endsWith('/tenants/current'),
+            handler: 'StaleWhileRevalidate',
+            options: {
+              cacheName: 'api-tenant',
+              expiration: { maxEntries: 5, maxAgeSeconds: 60 * 60 * 24 },
+            },
+          },
+          {
+            // Unmatched requests already fall through to the network
+            // untouched — this rule exists to make "never cache auth" an
+            // explicit, visible decision rather than an implicit default a
+            // future broader rule could accidentally paper over.
+            urlPattern: ({ url }) => /\/auth\//.test(url.pathname),
+            handler: 'NetworkOnly',
+          },
+        ],
       },
       manifest: {
         name: 'AgriDealer ERP',
