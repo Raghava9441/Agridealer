@@ -1,6 +1,25 @@
 name: agridealer-erp
 
 services:
+  # Builds and serves the production SPA (apps/web/Dockerfile + nginx.conf).
+  # Under the "full" profile so the default `docker compose up` still only
+  # brings up backing stores — day-to-day dev runs the app via `npm run dev`
+  # against these same containers, not this build. Bring it up explicitly
+  # with `docker compose --profile full up web` to smoke-test the actual
+  # deployable image.
+  web:
+    build:
+      context: ..
+      dockerfile: apps/web/Dockerfile
+      args:
+        VITE_API_BASE_URL: ${VITE_API_BASE_URL:-}
+        VITE_ROOT_DOMAIN: ${VITE_ROOT_DOMAIN:-localhost}
+        VITE_SENTRY_DSN: ${VITE_SENTRY_DSN:-}
+    container_name: agridealer-web
+    profiles: ["full"]
+    ports:
+      - "8081:80"
+
   mongo:
     image: mongo:7
     container_name: agridealer-mongo

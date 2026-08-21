@@ -1,0 +1,16 @@
+# Keeps the build context small and every stage's npm ci deterministic —
+# node_modules/dist here would shadow what the container installs/builds
+# itself, and .env* would leak secrets into an image layer.
+node_modules
+**/node_modules
+dist
+**/dist
+build
+**/build
+.git
+.github
+*.tsbuildinfo
+.env
+.env.*
+!.env.example
+docker/.data
