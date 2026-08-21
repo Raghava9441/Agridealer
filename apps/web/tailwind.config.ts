@@ -16,6 +16,7 @@ export default {
         surface: 'hsl(var(--color-surface) / <alpha-value>)',
         muted: 'hsl(var(--color-muted) / <alpha-value>)',
         danger: 'hsl(var(--color-danger) / <alpha-value>)',
+        warning: 'hsl(var(--color-warning) / <alpha-value>)',
         // Registers the `text-foreground`/`text-muted-foreground` classes already used throughout the app —
         // they previously resolved to no CSS rule at all since these tokens were never defined (see tailwind.css).
         foreground: 'hsl(var(--color-text) / <alpha-value>)',

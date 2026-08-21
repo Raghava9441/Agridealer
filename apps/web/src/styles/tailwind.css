@@ -11,6 +11,7 @@
     --color-surface: 0 0% 100%;
     --color-muted: 150 12% 96%;
     --color-danger: 0 72% 45%;
+    --color-warning: 38 92% 42%;
     /* Foreground/text tokens — previously missing entirely, so body text
        used the browser's default black regardless of theme while only
        backgrounds (surface/muted) flipped dark, making dark mode

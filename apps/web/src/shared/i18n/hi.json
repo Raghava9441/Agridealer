@@ -41,6 +41,9 @@
     "boundaryTitle": "कुछ गलत हो गया",
     "boundaryDescription": "पेज के इस हिस्से में समस्या आई। फिर कोशिश करें, या बार-बार हो रहा हो तो पेज रीलोड करें।"
   },
+  "offline": {
+    "pendingSync": "{{count}} सिंक होना बाकी"
+  },
   "dataTable": {
     "emptyTitle": "कोई परिणाम नहीं",
     "exportCsv": "CSV एक्सपोर्ट करें",
@@ -131,6 +134,7 @@
     "finalizing": "पूर्ण हो रहा है…",
     "saleSuccess": "बिक्री दर्ज हो गई",
     "saleError": "बिक्री पूर्ण नहीं हो सकी",
+    "saleQueuedOffline": "बिक्री सहेजी गई — ऑनलाइन आने पर सिंक होगी",
     "saleComplete": "बिक्री {{invoiceNumber}} पूर्ण हुई",
     "noInvoicesYet": "अभी तक कोई इनवॉइस नहीं",
     "bill": "बिल",

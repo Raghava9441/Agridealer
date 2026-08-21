@@ -48,7 +48,7 @@ export function PosScreen() {
   const grandTotal = lines.reduce((sum, l) => sum + l.quantity * l.unitPrice - l.discountAmount, 0)
 
   const handleCheckout = async () => {
-    const invoice = await mutateAsync({
+    const result = await mutateAsync({
       customerId: customerId ?? undefined,
       lines: lines.map((l) => ({
         productId: l.productId,
@@ -57,7 +57,10 @@ export function PosScreen() {
         discountPaise: toPaise(l.discountAmount),
       })),
     })
-    setLastInvoice(invoice)
+    // Queued (offline): no server-assigned invoiceNumber to show yet, so
+    // there's nothing to set lastInvoice to — the toast from useCreateInvoice
+    // already told the operator it's saved and will sync later.
+    if (result.status === 'created') setLastInvoice(result.invoice)
     clear()
   }
 

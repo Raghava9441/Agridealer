@@ -12,6 +12,7 @@ import { Button } from '@/shared/components/ui/Button'
 import { CommandPalette, type Command } from '@/shared/components/ui/CommandPalette'
 import { NotificationCenter } from '@/shared/components/ui/NotificationCenter'
 import { FeatureFlagDevPanel } from '@/featureFlags/FeatureFlagDevPanel'
+import { useSyncQueueSize } from '@/offline/useSyncQueueSize'
 
 export function AppShell({ session, children }: { session: Session | null; children: ReactNode }) {
   const dispatch = useAppDispatch()
@@ -21,6 +22,7 @@ export function AppShell({ session, children }: { session: Session | null; child
   const { locale, setLocale } = useLocale()
   const navItems = useNavItems()
   const { commandPaletteOpen } = useAppSelector(selectUi)
+  const pendingSyncCount = useSyncQueueSize()
 
   const commands = useMemo<Command[]>(
     () => navItems.map((item) => ({ id: item.to, label: content.get(item.labelKey), run: () => navigate({ to: item.to }) })),
@@ -56,6 +58,16 @@ export function AppShell({ session, children }: { session: Session | null; child
           </Button>
 
           <div className="flex items-center gap-3">
+            {pendingSyncCount > 0 && (
+              <span
+                role="status"
+                className="rounded-full bg-warning/15 px-2.5 py-1 text-xs font-medium text-warning"
+                title={content.get('offline.pendingSync', { count: pendingSyncCount })}
+              >
+                {content.get('offline.pendingSync', { count: pendingSyncCount })}
+              </span>
+            )}
+
             <label className="sr-only" htmlFor="locale">
               {content.get('language.label')}
             </label>

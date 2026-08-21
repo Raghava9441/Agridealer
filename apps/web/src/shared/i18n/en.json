@@ -41,6 +41,9 @@
     "boundaryTitle": "Something went wrong",
     "boundaryDescription": "This part of the page ran into an error. Try again, or reload if it keeps happening."
   },
+  "offline": {
+    "pendingSync": "{{count}} pending sync"
+  },
   "dataTable": {
     "emptyTitle": "No results",
     "exportCsv": "Export CSV",
@@ -131,6 +134,7 @@
     "finalizing": "Finalizing…",
     "saleSuccess": "Sale recorded",
     "saleError": "Could not finalize sale",
+    "saleQueuedOffline": "Sale saved — will sync when back online",
     "saleComplete": "Sale {{invoiceNumber}} complete",
     "noInvoicesYet": "No invoices yet",
     "bill": "Bill",
