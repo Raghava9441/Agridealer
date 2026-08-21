@@ -1,0 +1,199 @@
+{
+  "auth": {
+    "signInTitle": "Sign in to AgriDealer",
+    "signIn": "Sign in",
+    "signingIn": "Signing in…",
+    "email": "Email",
+    "password": "Password",
+    "loginFailed": "Unable to sign in",
+    "mfaNotImplemented": "This account requires MFA verification, which is not yet implemented in this build."
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "billing": "Billing",
+    "customers": "Customers",
+    "products": "Products",
+    "inventory": "Inventory",
+    "purchases": "Purchases",
+    "credit": "Credit",
+    "expenses": "Expenses",
+    "cashbook": "Cash Book",
+    "reports": "Reports",
+    "settings": "Settings",
+    "signOut": "Sign out",
+    "commandPaletteHint": "Search (Ctrl+K)"
+  },
+  "common": {
+    "loading": "Loading…",
+    "saving": "Saving…",
+    "save": "Save",
+    "retry": "Try again",
+    "remove": "Remove",
+    "search": "Search",
+    "back": "Back",
+    "next": "Next",
+    "finish": "Finish",
+    "dismiss": "Dismiss",
+    "clearFilters": "Clear filters",
+    "selectPlaceholder": "Select…"
+  },
+  "errors": {
+    "boundaryTitle": "Something went wrong",
+    "boundaryDescription": "This part of the page ran into an error. Try again, or reload if it keeps happening."
+  },
+  "dataTable": {
+    "emptyTitle": "No results",
+    "exportCsv": "Export CSV",
+    "resizeColumn": "Resize column",
+    "rowCount": "{{count}} rows"
+  },
+  "commandPalette": {
+    "title": "Command palette",
+    "placeholder": "Jump to…",
+    "noResults": "No matches"
+  },
+  "theme": {
+    "mode": "Theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "language": {
+    "label": "Language",
+    "en": "English",
+    "te": "తెలుగు",
+    "hi": "हिन्दी",
+    "ar": "العربية"
+  },
+  "customers": {
+    "title": "Customers",
+    "description": "Farmers and businesses who buy from you.",
+    "addCustomer": "Add customer",
+    "searchPlaceholder": "Search by name or phone",
+    "emptyTitle": "No customers yet",
+    "createSuccess": "Customer created",
+    "createError": "Could not create customer",
+    "viewOrders": "View orders",
+    "ordersTitle": "Order history",
+    "fields": {
+      "name": "Name",
+      "phone": "Phone",
+      "email": "Email",
+      "gstin": "GSTIN",
+      "creditLimit": "Credit limit (₹)",
+      "creditDays": "Credit days",
+      "balance": "Balance",
+      "status": "Status",
+      "orders": "Orders"
+    }
+  },
+  "products": {
+    "title": "Products",
+    "description": "Your catalogue of seeds, fertilizers, and pesticides.",
+    "notBuiltTitle": "Product catalogue UI not built yet",
+    "notBuiltDescription": "The backend API is ready (create/list/edit products, batch stock). This screen follows once built, using the same pattern as Customers."
+  },
+  "inventory": {
+    "title": "Inventory",
+    "description": "Stock levels, batches, and expiry alerts.",
+    "notBuiltTitle": "Inventory browse UI not built yet",
+    "notBuiltDescription": "The backend API is ready (stock summary, batch list, movement history, expiring batches) and already powers the POS product picker in Billing."
+  },
+  "purchases": {
+    "title": "Purchases",
+    "description": "Purchase orders and goods received from vendors.",
+    "notBuiltTitle": "Purchases UI not built yet",
+    "notBuiltDescription": "The backend API is ready and tested (vendors, purchase orders, goods receipts). Vendor bills/payments are not built on the backend yet."
+  },
+  "billing": {
+    "title": "Billing",
+    "description": "Ring up a sale and view past invoices.",
+    "tabs": {
+      "pos": "New sale",
+      "history": "Invoice history"
+    },
+    "customer": {
+      "label": "Customer",
+      "searchPlaceholder": "Search by name or phone",
+      "change": "Change",
+      "newCustomer": "+ New customer",
+      "noMatches": "No customers match your search"
+    },
+    "findProduct": "Find a product",
+    "searchProductsPlaceholder": "Search products by name or SKU",
+    "noProductsFound": "No products match your search",
+    "addToCart": "Add",
+    "stockAvailable": "{{count}} {{unit}} in stock",
+    "currentSale": "Current sale",
+    "cartEmpty": "Cart is empty — search for a product to add it.",
+    "total": "Total",
+    "finalizeSale": "Finalize sale",
+    "finalizing": "Finalizing…",
+    "saleSuccess": "Sale recorded",
+    "saleError": "Could not finalize sale",
+    "saleComplete": "Sale {{invoiceNumber}} complete",
+    "noInvoicesYet": "No invoices yet",
+    "bill": "Bill",
+    "downloadBill": "Download bill",
+    "billTo": "Bill to",
+    "walkInCustomer": "Walk-in customer",
+    "tax": "Tax",
+    "subtotal": "Subtotal",
+    "amountPaid": "Amount paid",
+    "balanceDue": "Balance due",
+    "fields": {
+      "product": "Product",
+      "quantity": "Qty",
+      "unitPrice": "Unit price (₹)",
+      "discount": "Discount (₹)",
+      "invoiceNumber": "Invoice #",
+      "total": "Total",
+      "paymentStatus": "Payment",
+      "date": "Date"
+    }
+  },
+  "credit": {
+    "title": "Farmer Credit Book",
+    "description": "Customer balances and payment history.",
+    "notBuiltTitle": "Ledger/ageing UI not built yet",
+    "notBuiltDescription": "Recording a payment is fully built (see Billing → invoice history). A dedicated statement/ageing view isn't — no ageing-bucket rule exists yet."
+  },
+  "expenses": {
+    "title": "Expenses",
+    "description": "Shop expense entries.",
+    "notBuiltTitle": "Expenses not built yet",
+    "notBuiltDescription": "The data model exists but has no API yet — nothing for this screen to call."
+  },
+  "cashbook": {
+    "title": "Cash Book",
+    "description": "Day open/close and reconciliation.",
+    "notBuiltTitle": "Cash book not built yet",
+    "notBuiltDescription": "The data model exists but has no API yet, and its reconciliation math depends on Expenses existing first."
+  },
+  "reports": {
+    "title": "Reports",
+    "description": "Profit and business performance.",
+    "notBuiltTitle": "Reports not built yet",
+    "notBuiltDescription": "The underlying data exists (cost vs. sale price on every stock movement) but nothing aggregates it into a report yet."
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "description": "An at-a-glance view of the shop.",
+    "notBuiltTitle": "Dashboard not built yet",
+    "notBuiltDescription": "No aggregation endpoint exists yet. The widget system (KPI cards, charts) is ready to render one the moment it does."
+  },
+  "settings": {
+    "title": "Settings",
+    "description": "Tenant configuration, branding, and staff.",
+    "profile": {
+      "title": "Business profile",
+      "addressLine1": "Address line 1",
+      "addressLine2": "Address line 2",
+      "city": "City",
+      "state": "State",
+      "pincode": "Pincode",
+      "saveSuccess": "Business profile saved",
+      "saveError": "Could not save business profile"
+    }
+  }
+}

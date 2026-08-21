@@ -1,0 +1,199 @@
+{
+  "auth": {
+    "signInTitle": "AgriDealer में साइन इन करें",
+    "signIn": "साइन इन करें",
+    "signingIn": "साइन इन हो रहा है…",
+    "email": "ईमेल",
+    "password": "पासवर्ड",
+    "loginFailed": "साइन इन नहीं हो सका",
+    "mfaNotImplemented": "इस खाते के लिए MFA सत्यापन आवश्यक है, जो इस बिल्ड में अभी लागू नहीं है।"
+  },
+  "nav": {
+    "dashboard": "डैशबोर्ड",
+    "billing": "बिलिंग",
+    "customers": "ग्राहक",
+    "products": "उत्पाद",
+    "inventory": "इन्वेंटरी",
+    "purchases": "खरीद",
+    "credit": "क्रेडिट",
+    "expenses": "खर्च",
+    "cashbook": "कैश बुक",
+    "reports": "रिपोर्ट",
+    "settings": "सेटिंग्स",
+    "signOut": "साइन आउट",
+    "commandPaletteHint": "खोजें (Ctrl+K)"
+  },
+  "common": {
+    "loading": "लोड हो रहा है…",
+    "saving": "सेव हो रहा है…",
+    "save": "सेव करें",
+    "retry": "फिर कोशिश करें",
+    "remove": "हटाएं",
+    "search": "खोजें",
+    "back": "वापस",
+    "next": "आगे",
+    "finish": "पूर्ण करें",
+    "dismiss": "बंद करें",
+    "clearFilters": "फ़िल्टर हटाएं",
+    "selectPlaceholder": "चुनें…"
+  },
+  "errors": {
+    "boundaryTitle": "कुछ गलत हो गया",
+    "boundaryDescription": "पेज के इस हिस्से में समस्या आई। फिर कोशिश करें, या बार-बार हो रहा हो तो पेज रीलोड करें।"
+  },
+  "dataTable": {
+    "emptyTitle": "कोई परिणाम नहीं",
+    "exportCsv": "CSV एक्सपोर्ट करें",
+    "resizeColumn": "कॉलम का आकार बदलें",
+    "rowCount": "{{count}} पंक्तियाँ"
+  },
+  "commandPalette": {
+    "title": "कमांड पैलेट",
+    "placeholder": "कहाँ जाना है…",
+    "noResults": "कोई मेल नहीं मिला"
+  },
+  "theme": {
+    "mode": "थीम",
+    "light": "लाइट",
+    "dark": "डार्क",
+    "system": "सिस्टम"
+  },
+  "language": {
+    "label": "भाषा",
+    "en": "English",
+    "te": "తెలుగు",
+    "hi": "हिन्दी",
+    "ar": "العربية"
+  },
+  "customers": {
+    "title": "ग्राहक",
+    "description": "किसान और व्यवसाय जो आपसे खरीदते हैं।",
+    "addCustomer": "ग्राहक जोड़ें",
+    "searchPlaceholder": "नाम या फ़ोन से खोजें",
+    "emptyTitle": "अभी तक कोई ग्राहक नहीं",
+    "createSuccess": "ग्राहक बनाया गया",
+    "createError": "ग्राहक नहीं बनाया जा सका",
+    "viewOrders": "ऑर्डर देखें",
+    "ordersTitle": "ऑर्डर इतिहास",
+    "fields": {
+      "name": "नाम",
+      "phone": "फ़ोन",
+      "email": "ईमेल",
+      "gstin": "GSTIN",
+      "creditLimit": "क्रेडिट सीमा (₹)",
+      "creditDays": "क्रेडिट दिन",
+      "balance": "बकाया",
+      "status": "स्थिति",
+      "orders": "ऑर्डर"
+    }
+  },
+  "products": {
+    "title": "उत्पाद",
+    "description": "बीज, उर्वरक और कीटनाशकों की आपकी सूची।",
+    "notBuiltTitle": "उत्पाद सूची UI अभी नहीं बना",
+    "notBuiltDescription": "बैकएंड API तैयार है (उत्पाद बनाना/सूचीबद्ध करना/संपादित करना, बैच स्टॉक)। यह स्क्रीन Customers जैसे ही पैटर्न पर बनने के बाद आएगी।"
+  },
+  "inventory": {
+    "title": "इन्वेंटरी",
+    "description": "स्टॉक स्तर, बैच और एक्सपायरी अलर्ट।",
+    "notBuiltTitle": "इन्वेंटरी ब्राउज़ UI अभी नहीं बना",
+    "notBuiltDescription": "बैकएंड API तैयार है (स्टॉक सारांश, बैच सूची, मूवमेंट इतिहास, जल्द एक्सपायर होने वाले बैच) और यह पहले से ही बिलिंग के POS प्रोडक्ट पिकर को चला रहा है।"
+  },
+  "purchases": {
+    "title": "खरीद",
+    "description": "विक्रेताओं से खरीद ऑर्डर और प्राप्त माल।",
+    "notBuiltTitle": "खरीद UI अभी नहीं बना",
+    "notBuiltDescription": "बैकएंड API तैयार और परखा हुआ है (विक्रेता, खरीद ऑर्डर, माल प्राप्ति)। विक्रेता बिल/भुगतान अभी बैकएंड में नहीं बने हैं।"
+  },
+  "billing": {
+    "title": "बिलिंग",
+    "description": "बिक्री दर्ज करें और पुराने इनवॉइस देखें।",
+    "tabs": {
+      "pos": "नई बिक्री",
+      "history": "इनवॉइस इतिहास"
+    },
+    "customer": {
+      "label": "ग्राहक",
+      "searchPlaceholder": "नाम या फ़ोन से खोजें",
+      "change": "बदलें",
+      "newCustomer": "+ नया ग्राहक",
+      "noMatches": "आपकी खोज से मेल खाने वाला कोई ग्राहक नहीं"
+    },
+    "findProduct": "उत्पाद खोजें",
+    "searchProductsPlaceholder": "नाम या SKU से उत्पाद खोजें",
+    "noProductsFound": "आपकी खोज से मेल खाता कोई उत्पाद नहीं",
+    "addToCart": "जोड़ें",
+    "stockAvailable": "स्टॉक में {{count}} {{unit}} उपलब्ध",
+    "currentSale": "वर्तमान बिक्री",
+    "cartEmpty": "कार्ट खाली है — जोड़ने के लिए उत्पाद खोजें।",
+    "total": "कुल",
+    "finalizeSale": "बिक्री पूर्ण करें",
+    "finalizing": "पूर्ण हो रहा है…",
+    "saleSuccess": "बिक्री दर्ज हो गई",
+    "saleError": "बिक्री पूर्ण नहीं हो सकी",
+    "saleComplete": "बिक्री {{invoiceNumber}} पूर्ण हुई",
+    "noInvoicesYet": "अभी तक कोई इनवॉइस नहीं",
+    "bill": "बिल",
+    "downloadBill": "बिल डाउनलोड करें",
+    "billTo": "बिल किसके नाम",
+    "walkInCustomer": "वॉक-इन ग्राहक",
+    "tax": "टैक्स",
+    "subtotal": "उप-योग",
+    "amountPaid": "भुगतान की गई राशि",
+    "balanceDue": "शेष राशि",
+    "fields": {
+      "product": "उत्पाद",
+      "quantity": "मात्रा",
+      "unitPrice": "इकाई मूल्य (₹)",
+      "discount": "छूट (₹)",
+      "invoiceNumber": "इनवॉइस #",
+      "total": "कुल",
+      "paymentStatus": "भुगतान",
+      "date": "तारीख"
+    }
+  },
+  "credit": {
+    "title": "किसान क्रेडिट बुक",
+    "description": "ग्राहक बकाया और भुगतान इतिहास।",
+    "notBuiltTitle": "लेजर/एजिंग UI अभी नहीं बना",
+    "notBuiltDescription": "भुगतान दर्ज करना पूरी तरह से बना है (बिलिंग → इनवॉइस इतिहास देखें)। अलग स्टेटमेंट/एजिंग व्यू नहीं है — अभी कोई एजिंग-बकेट नियम मौजूद नहीं है।"
+  },
+  "expenses": {
+    "title": "खर्च",
+    "description": "दुकान के खर्च की प्रविष्टियाँ।",
+    "notBuiltTitle": "खर्च अभी नहीं बना",
+    "notBuiltDescription": "डेटा मॉडल मौजूद है पर अभी कोई API नहीं है — इस स्क्रीन के पास कॉल करने को कुछ नहीं है।"
+  },
+  "cashbook": {
+    "title": "कैश बुक",
+    "description": "दिन खोलना/बंद करना और मिलान।",
+    "notBuiltTitle": "कैश बुक अभी नहीं बना",
+    "notBuiltDescription": "डेटा मॉडल मौजूद है पर अभी कोई API नहीं है, और इसका मिलान गणित पहले खर्च मॉड्यूल के मौजूद होने पर निर्भर करता है।"
+  },
+  "reports": {
+    "title": "रिपोर्ट",
+    "description": "लाभ और व्यवसाय प्रदर्शन।",
+    "notBuiltTitle": "रिपोर्ट अभी नहीं बनी",
+    "notBuiltDescription": "अंतर्निहित डेटा मौजूद है (हर स्टॉक मूवमेंट पर लागत बनाम बिक्री मूल्य) पर अभी कुछ भी इसे रिपोर्ट में समेकित नहीं करता।"
+  },
+  "dashboard": {
+    "title": "डैशबोर्ड",
+    "description": "दुकान का एक नज़र में विवरण।",
+    "notBuiltTitle": "डैशबोर्ड अभी नहीं बना",
+    "notBuiltDescription": "अभी कोई एग्रीगेशन एंडपॉइंट मौजूद नहीं है। विजेट सिस्टम (KPI कार्ड, चार्ट) इसके मौजूद होते ही दिखाने के लिए तैयार है।"
+  },
+  "settings": {
+    "title": "सेटिंग्स",
+    "description": "टेनेंट कॉन्फ़िगरेशन, ब्रांडिंग और स्टाफ़।",
+    "profile": {
+      "title": "व्यवसाय प्रोफ़ाइल",
+      "addressLine1": "पता पंक्ति 1",
+      "addressLine2": "पता पंक्ति 2",
+      "city": "शहर",
+      "state": "राज्य",
+      "pincode": "पिनकोड",
+      "saveSuccess": "व्यवसाय प्रोफ़ाइल सहेजी गई",
+      "saveError": "व्यवसाय प्रोफ़ाइल सहेजी नहीं जा सकी"
+    }
+  }
+}

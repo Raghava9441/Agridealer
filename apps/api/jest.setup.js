@@ -1,0 +1,6 @@
+process.env.NODE_ENV = 'test'
+process.env.MONGODB_URI = process.env.MONGODB_URI ?? 'mongodb://127.0.0.1:27017/agridealer-test'
+process.env.REDIS_URL = process.env.REDIS_URL ?? 'redis://127.0.0.1:6379'
+process.env.JWT_ACCESS_SECRET = 'test-access-secret-000000000000'
+process.env.JWT_REFRESH_SECRET = 'test-refresh-secret-000000000000'
+process.env.CORS_ORIGINS = 'http://localhost:5173'

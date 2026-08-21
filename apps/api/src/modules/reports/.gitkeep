@@ -1,0 +1,2 @@
+Scaffolded per docs reports section 6.2 / Phase plan section 16.
+Not yet implemented — follow the routes -> controller -> service -> repository -> model layering used in modules/auth and modules/users.
