@@ -3,7 +3,39 @@
   "version": "0.1.0",
   "private": true,
   "description": "AgriDealer ERP frontend - React + Vite + TanStack Router/Query + Tailwind",
+  "license": "UNLICENSED",
+  "author": "Raghava9441 <raghavendrareddybollapu556@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Raghava9441/Agridealer.git",
+    "directory": "apps/web"
+  },
+  "bugs": {
+    "url": "https://github.com/Raghava9441/Agridealer/issues"
+  },
+  "homepage": "https://github.com/Raghava9441/Agridealer/tree/main/apps/web#readme",
+  "keywords": [
+    "erp",
+    "pos",
+    "billing",
+    "react",
+    "vite",
+    "pwa",
+    "multi-tenant"
+  ],
   "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "sideEffects": [
+    "*.css"
+  ],
+  "browserslist": [
+    "> 0.5%",
+    "last 2 versions",
+    "not dead",
+    "not IE 11"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc -p tsconfig.json --noEmit && vite build",
@@ -12,7 +44,9 @@
     "lint": "eslint \"src/**/*.{ts,tsx}\"",
     "lint:fix": "eslint \"src/**/*.{ts,tsx}\" --fix",
     "test": "vitest run",
-    "test:coverage": "vitest run --coverage"
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "clean": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true});require('fs').rmSync('coverage',{recursive:true,force:true})\""
   },
   "dependencies": {
     "@agridealer/contracts": "*",

@@ -3,12 +3,32 @@
   "version": "0.1.0",
   "private": true,
   "description": "AgriDealer ERP - multi-tenant SaaS for pesticide & fertilizer dealers",
+  "license": "UNLICENSED",
+  "author": "Raghava9441 <raghavendrareddybollapu556@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Raghava9441/Agridealer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Raghava9441/Agridealer/issues"
+  },
+  "homepage": "https://github.com/Raghava9441/Agridealer#readme",
+  "keywords": [
+    "erp",
+    "multi-tenant",
+    "saas",
+    "agriculture",
+    "pesticide-dealer",
+    "fertilizer-dealer",
+    "monorepo"
+  ],
   "workspaces": [
     "apps/*",
     "packages/*"
   ],
   "engines": {
-    "node": ">=18"
+    "node": ">=18",
+    "npm": ">=9"
   },
   "scripts": {
     "dev": "concurrently -n api,web -c blue,green \"npm run dev --workspace=apps/api\" \"npm run dev --workspace=apps/web\"",
@@ -21,7 +41,10 @@
     "lint": "npm run lint --workspaces --if-present",
     "lint:fix": "npm run lint:fix --workspaces --if-present",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\" --ignore-path .gitignore",
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,md}\" --ignore-path .gitignore",
     "test": "npm run test --workspaces --if-present",
+    "test:coverage": "npm run test:coverage --workspaces --if-present",
+    "clean": "npm run clean --workspaces --if-present",
     "docker:up": "docker compose -f docker/docker-compose.yml up -d",
     "docker:down": "docker compose -f docker/docker-compose.yml down",
     "docker:logs": "docker compose -f docker/docker-compose.yml logs -f"
