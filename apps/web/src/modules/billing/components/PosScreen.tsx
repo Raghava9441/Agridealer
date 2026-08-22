@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useProducts } from '@/modules/products/hooks/useProducts'
 import { useContent } from '@/cms/useContent'
+import { usePermission } from '@/permissions/hooks'
 import { SearchBar } from '@/shared/components/ui/SearchBar'
 import { Button } from '@/shared/components/ui/Button'
 import { Card } from '@/shared/components/ui/Card'
@@ -31,6 +32,7 @@ export function PosScreen() {
   const { locale } = useAppSelector(selectPreferences)
   const { mutateAsync, isPending } = useCreateInvoice()
   const content = useContent()
+  const canSell = usePermission('billing:create')
 
   const handleAdd = (product: Product) => {
     const line: CartLine = {
@@ -98,9 +100,10 @@ export function PosScreen() {
           <span className="text-sm text-muted-foreground">{content.get('billing.total')}</span>
           <span className="text-lg font-semibold">{formatMoney(toPaise(grandTotal), locale)}</span>
         </div>
-        <Button className="mt-4 w-full" disabled={lines.length === 0 || isPending} onClick={() => void handleCheckout()}>
+        <Button className="mt-4 w-full" disabled={!canSell || lines.length === 0 || isPending} onClick={() => void handleCheckout()}>
           {isPending ? content.get('billing.finalizing') : content.get('billing.finalizeSale')}
         </Button>
+        {!canSell && <p className="mt-2 text-sm text-muted-foreground">{content.get('billing.noSellPermission')}</p>}
       </Card>
     </div>
   )

@@ -21,6 +21,25 @@ export const createUserSchema = z.object({
 })
 export type CreateUserInput = z.infer<typeof createUserSchema>
 
+/**
+ * Role/status only — not a general profile editor. Name/email/password
+ * changes are a different, self-service concern (and email changes would
+ * need to re-check the tenant-scoped uniqueness index); this endpoint exists
+ * specifically to administer access, matching what users:manage actually
+ * gates.
+ */
+export const updateUserSchema = z.object({
+  role: z.enum(ROLES).optional(),
+  status: z.enum(['active', 'disabled']).optional(),
+})
+export type UpdateUserInput = z.infer<typeof updateUserSchema>
+
+export const listUsersQuerySchema = z.object({
+  role: z.enum(ROLES).optional(),
+  status: z.enum(['active', 'disabled']).optional(),
+})
+export type ListUsersQuery = z.infer<typeof listUsersQuerySchema>
+
 /** Shape of the verified JWT access token claim (docs §11.1). */
 export const accessTokenClaimsSchema = z.object({
   userId: z.string(),

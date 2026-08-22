@@ -1,7 +1,13 @@
+import type { Role } from '@agridealer/contracts'
 import { User, type IUser } from './users.model'
 
 export interface TenantContext {
   tenantId: string
+}
+
+export interface UserListFilter {
+  role?: Role
+  status?: IUser['status']
 }
 
 /**
@@ -22,6 +28,14 @@ export class UserRepository {
 
   findById(id: string) {
     return User.findOne(this.scope({ _id: id }))
+  }
+
+  // passwordHash has no schema-level `select: false` (unlike mfaSecret) — every
+  // other read here relies on that to get the hash for login verification, so
+  // it has to be excluded explicitly at the one call site that lists users for
+  // display rather than narrowing the schema default for everyone.
+  list(filter: UserListFilter = {}) {
+    return User.find(this.scope(filter)).select('-passwordHash').sort({ name: 1 })
   }
 
   create(input: Partial<IUser>) {

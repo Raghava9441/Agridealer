@@ -183,6 +183,7 @@
     "saleSuccess": "Sale recorded",
     "saleError": "Could not finalize sale",
     "saleQueuedOffline": "Sale saved — will sync when back online",
+    "noSellPermission": "Your role can't finalize sales — ask an owner or manager.",
     "saleComplete": "Sale {{invoiceNumber}} complete",
     "noInvoicesYet": "No invoices yet",
     "bill": "Bill",
@@ -252,8 +253,33 @@
       "saveError": "Could not save business profile"
     },
     "users": {
+      "title": "Staff",
+      "addStaff": "Add staff",
+      "editStaff": "Edit staff",
+      "emptyTitle": "No staff yet",
+      "thatsYou": "That's you",
       "createSuccess": "Staff account created",
-      "createError": "Could not create staff account"
+      "createError": "Could not create staff account",
+      "updateSuccess": "Staff account updated",
+      "updateError": "Could not update staff account",
+      "fields": {
+        "name": "Name",
+        "email": "Email",
+        "password": "Password",
+        "role": "Role",
+        "status": "Status"
+      },
+      "roleOptions": {
+        "owner": "Owner",
+        "manager": "Manager",
+        "sales": "Sales",
+        "accountant": "Accountant",
+        "warehouse": "Warehouse"
+      },
+      "statusOptions": {
+        "active": "Active",
+        "disabled": "Disabled"
+      }
     }
   }
 }

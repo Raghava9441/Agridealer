@@ -183,6 +183,7 @@
     "saleSuccess": "تم تسجيل عملية البيع",
     "saleError": "تعذر إتمام عملية البيع",
     "saleQueuedOffline": "تم حفظ عملية البيع — ستتم المزامنة عند العودة إلى الإنترنت",
+    "noSellPermission": "لا يمكن لدورك إتمام عمليات البيع — اطلب من المالك أو المدير.",
     "saleComplete": "اكتملت عملية البيع {{invoiceNumber}}",
     "noInvoicesYet": "لا توجد فواتير بعد",
     "bill": "الفاتورة",
@@ -252,8 +253,33 @@
       "saveError": "تعذر حفظ الملف التجاري"
     },
     "users": {
+      "title": "الموظفون",
+      "addStaff": "إضافة موظف",
+      "editStaff": "تعديل الموظف",
+      "emptyTitle": "لا يوجد موظفون بعد",
+      "thatsYou": "هذا أنت",
       "createSuccess": "تم إنشاء حساب الموظف",
-      "createError": "تعذر إنشاء حساب الموظف"
+      "createError": "تعذر إنشاء حساب الموظف",
+      "updateSuccess": "تم تحديث حساب الموظف",
+      "updateError": "تعذر تحديث حساب الموظف",
+      "fields": {
+        "name": "الاسم",
+        "email": "البريد الإلكتروني",
+        "password": "كلمة المرور",
+        "role": "الدور",
+        "status": "الحالة"
+      },
+      "roleOptions": {
+        "owner": "المالك",
+        "manager": "المدير",
+        "sales": "المبيعات",
+        "accountant": "المحاسب",
+        "warehouse": "المستودع"
+      },
+      "statusOptions": {
+        "active": "نشط",
+        "disabled": "معطّل"
+      }
     }
   }
 }

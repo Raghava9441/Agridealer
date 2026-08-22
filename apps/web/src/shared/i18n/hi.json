@@ -183,6 +183,7 @@
     "saleSuccess": "बिक्री दर्ज हो गई",
     "saleError": "बिक्री पूर्ण नहीं हो सकी",
     "saleQueuedOffline": "बिक्री सहेजी गई — ऑनलाइन आने पर सिंक होगी",
+    "noSellPermission": "आपकी भूमिका बिक्री पूर्ण नहीं कर सकती — मालिक या प्रबंधक से पूछें।",
     "saleComplete": "बिक्री {{invoiceNumber}} पूर्ण हुई",
     "noInvoicesYet": "अभी तक कोई इनवॉइस नहीं",
     "bill": "बिल",
@@ -252,8 +253,33 @@
       "saveError": "व्यवसाय प्रोफ़ाइल सहेजी नहीं जा सकी"
     },
     "users": {
+      "title": "स्टाफ",
+      "addStaff": "स्टाफ जोड़ें",
+      "editStaff": "स्टाफ संपादित करें",
+      "emptyTitle": "अभी कोई स्टाफ नहीं",
+      "thatsYou": "यह आप हैं",
       "createSuccess": "स्टाफ खाता बनाया गया",
-      "createError": "स्टाफ खाता नहीं बनाया जा सका"
+      "createError": "स्टाफ खाता नहीं बनाया जा सका",
+      "updateSuccess": "स्टाफ खाता अपडेट किया गया",
+      "updateError": "स्टाफ खाता अपडेट नहीं किया जा सका",
+      "fields": {
+        "name": "नाम",
+        "email": "ईमेल",
+        "password": "पासवर्ड",
+        "role": "भूमिका",
+        "status": "स्थिति"
+      },
+      "roleOptions": {
+        "owner": "मालिक",
+        "manager": "प्रबंधक",
+        "sales": "बिक्री",
+        "accountant": "लेखाकार",
+        "warehouse": "गोदाम"
+      },
+      "statusOptions": {
+        "active": "सक्रिय",
+        "disabled": "निष्क्रिय"
+      }
     }
   }
 }

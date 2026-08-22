@@ -1,19 +1,37 @@
-import type { CreateUserInput, Role } from '@agridealer/contracts'
+import type { CreateUserInput, UpdateUserInput, Role } from '@agridealer/contracts'
 import { apiRequest } from '@/core/http/apiClient'
+import { buildQueryString } from '@/core/http/buildQueryString'
 
-export interface CreatedUser {
+export interface StaffUser {
   id: string
   name: string
   email: string
   role: Role
+  status: 'active' | 'disabled'
+  createdAt: string
+  updatedAt: string
 }
 
-/**
- * Talks to apps/api/src/modules/users/users.routes.ts — create-only today,
- * that's the entire backend surface (no list/get/update route exists yet).
- */
+export interface UserListFilter {
+  role?: Role
+  status?: 'active' | 'disabled'
+}
+
+export const usersKeys = {
+  all: ['users'] as const,
+  lists: () => [...usersKeys.all, 'list'] as const,
+  list: (filter: UserListFilter) => [...usersKeys.lists(), filter] as const,
+}
+
+/** Talks to apps/api/src/modules/users/users.routes.ts — every route here is users:manage-only (owner). */
 export const usersApi = {
-  create(input: CreateUserInput): Promise<CreatedUser> {
-    return apiRequest<CreatedUser>('/users', { method: 'POST', body: JSON.stringify(input) })
+  list(filter: UserListFilter = {}): Promise<StaffUser[]> {
+    return apiRequest<StaffUser[]>(`/users${buildQueryString(filter)}`)
+  },
+  create(input: CreateUserInput): Promise<StaffUser> {
+    return apiRequest<StaffUser>('/users', { method: 'POST', body: JSON.stringify(input) })
+  },
+  update(id: string, input: UpdateUserInput): Promise<StaffUser> {
+    return apiRequest<StaffUser>(`/users/${id}`, { method: 'PATCH', body: JSON.stringify(input) })
   },
 }
