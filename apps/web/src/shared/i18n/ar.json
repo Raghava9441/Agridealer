@@ -35,7 +35,9 @@
     "finish": "إنهاء",
     "dismiss": "تجاهل",
     "clearFilters": "مسح عوامل التصفية",
-    "selectPlaceholder": "اختر…"
+    "selectPlaceholder": "اختر…",
+    "edit": "تعديل",
+    "actions": "الإجراءات"
   },
   "errors": {
     "boundaryTitle": "حدث خطأ ما",
@@ -93,12 +95,38 @@
   "products": {
     "title": "المنتجات",
     "description": "كتالوج البذور والأسمدة والمبيدات الخاص بك.",
-    "notBuiltTitle": "واجهة كتالوج المنتجات لم تُبنَ بعد",
-    "notBuiltDescription": "واجهة برمجة الخلفية جاهزة (إنشاء/عرض/تعديل المنتجات، مخزون الدُفعات). ستُبنى هذه الشاشة لاحقًا بنفس نمط شاشة العملاء.",
+    "addProduct": "إضافة منتج",
+    "editProduct": "تعديل المنتج",
+    "searchPlaceholder": "البحث بالاسم أو رمز SKU",
+    "emptyTitle": "لا توجد منتجات بعد",
     "createSuccess": "تم إنشاء المنتج",
     "createError": "تعذر إنشاء المنتج",
     "updateSuccess": "تم تحديث المنتج",
-    "updateError": "تعذر تحديث المنتج"
+    "updateError": "تعذر تحديث المنتج",
+    "fields": {
+      "sku": "رمز SKU",
+      "name": "الاسم",
+      "category": "الفئة",
+      "unit": "الوحدة",
+      "hsnCode": "رمز HSN",
+      "gstRatePercent": "نسبة الضريبة (%)",
+      "brand": "العلامة التجارية",
+      "description": "الوصف",
+      "batchTracked": "التتبع حسب الدُفعة",
+      "reorderLevel": "حد إعادة الطلب",
+      "status": "الحالة"
+    },
+    "unitOptions": {
+      "kg": "كيلوغرام (kg)",
+      "litre": "لتر",
+      "bag": "كيس",
+      "piece": "قطعة",
+      "box": "صندوق"
+    },
+    "statusOptions": {
+      "active": "نشط",
+      "discontinued": "متوقف"
+    }
   },
   "inventory": {
     "title": "المخزون",

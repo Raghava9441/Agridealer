@@ -35,7 +35,9 @@
     "finish": "Finish",
     "dismiss": "Dismiss",
     "clearFilters": "Clear filters",
-    "selectPlaceholder": "Select…"
+    "selectPlaceholder": "Select…",
+    "edit": "Edit",
+    "actions": "Actions"
   },
   "errors": {
     "boundaryTitle": "Something went wrong",
@@ -93,12 +95,38 @@
   "products": {
     "title": "Products",
     "description": "Your catalogue of seeds, fertilizers, and pesticides.",
-    "notBuiltTitle": "Product catalogue UI not built yet",
-    "notBuiltDescription": "The backend API is ready (create/list/edit products, batch stock). This screen follows once built, using the same pattern as Customers.",
+    "addProduct": "Add product",
+    "editProduct": "Edit product",
+    "searchPlaceholder": "Search by name or SKU",
+    "emptyTitle": "No products yet",
     "createSuccess": "Product created",
     "createError": "Could not create product",
     "updateSuccess": "Product updated",
-    "updateError": "Could not update product"
+    "updateError": "Could not update product",
+    "fields": {
+      "sku": "SKU",
+      "name": "Name",
+      "category": "Category",
+      "unit": "Unit",
+      "hsnCode": "HSN code",
+      "gstRatePercent": "GST rate (%)",
+      "brand": "Brand",
+      "description": "Description",
+      "batchTracked": "Track by batch",
+      "reorderLevel": "Reorder level",
+      "status": "Status"
+    },
+    "unitOptions": {
+      "kg": "Kilogram (kg)",
+      "litre": "Litre",
+      "bag": "Bag",
+      "piece": "Piece",
+      "box": "Box"
+    },
+    "statusOptions": {
+      "active": "Active",
+      "discontinued": "Discontinued"
+    }
   },
   "inventory": {
     "title": "Inventory",
