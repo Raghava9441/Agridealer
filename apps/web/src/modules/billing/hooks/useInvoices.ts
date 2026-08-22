@@ -3,7 +3,7 @@ import { invoicesApi, invoicesKeys } from '../api/invoicesApi'
 
 export function useInvoices(customerId?: string) {
   return useQuery({
-    queryKey: invoicesKeys.list(customerId),
-    queryFn: () => invoicesApi.list(customerId),
+    queryKey: invoicesKeys.list({ customerId }),
+    queryFn: () => invoicesApi.list({ customerId }),
   })
 }

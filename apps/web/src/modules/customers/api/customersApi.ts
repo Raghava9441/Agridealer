@@ -1,5 +1,6 @@
-import type { CreateCustomerInput, UpdateCustomerInput } from '@agridealer/contracts'
+import type { CreateCustomerInput, UpdateCustomerInput, AddressInput } from '@agridealer/contracts'
 import { apiRequest } from '@/core/http/apiClient'
+import { buildQueryString } from '@/core/http/buildQueryString'
 
 export interface Customer {
   _id: string
@@ -7,6 +8,7 @@ export interface Customer {
   phone: string
   email?: string
   gstin?: string
+  address?: AddressInput
   creditLimitPaise: number
   creditDays: number
   currentBalancePaise: number
@@ -15,19 +17,23 @@ export interface Customer {
   updatedAt: string
 }
 
+export interface CustomerListFilter {
+  search?: string
+  status?: 'active' | 'inactive'
+}
+
 export const customersKeys = {
   all: ['customers'] as const,
   lists: () => [...customersKeys.all, 'list'] as const,
-  list: (search: string) => [...customersKeys.lists(), { search }] as const,
+  list: (filter: CustomerListFilter) => [...customersKeys.lists(), filter] as const,
   details: () => [...customersKeys.all, 'detail'] as const,
   detail: (id: string) => [...customersKeys.details(), id] as const,
 }
 
 /** Talks to apps/api/src/modules/customers/customers.routes.ts. */
 export const customersApi = {
-  list(search?: string): Promise<Customer[]> {
-    const qs = search ? `?search=${encodeURIComponent(search)}` : ''
-    return apiRequest<Customer[]>(`/customers${qs}`)
+  list(filter: CustomerListFilter = {}): Promise<Customer[]> {
+    return apiRequest<Customer[]>(`/customers${buildQueryString(filter)}`)
   },
   get(id: string): Promise<Customer> {
     return apiRequest<Customer>(`/customers/${id}`)

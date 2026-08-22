@@ -1,4 +1,8 @@
+import type { CreateInvoiceInput } from '@agridealer/contracts'
 import { apiRequest } from '@/core/http/apiClient'
+import { buildQueryString } from '@/core/http/buildQueryString'
+
+export type { CreateInvoiceInput, CreateInvoiceLineInput } from '@agridealer/contracts'
 
 export interface InvoiceLine {
   productId: string
@@ -28,29 +32,26 @@ export interface Invoice {
   createdAt: string
 }
 
-export interface CreateInvoiceLineInput {
-  productId: string
-  quantity: number
-  unitPricePaise: number
-  discountPaise: number
-}
-
-export interface CreateInvoiceInput {
+export interface InvoiceListFilter {
   customerId?: string
-  lines: CreateInvoiceLineInput[]
+  status?: 'draft' | 'held' | 'finalized' | 'cancelled'
 }
 
 export const invoicesKeys = {
   all: ['invoices'] as const,
   lists: () => [...invoicesKeys.all, 'list'] as const,
-  list: (customerId?: string) => [...invoicesKeys.lists(), { customerId }] as const,
+  list: (filter: InvoiceListFilter) => [...invoicesKeys.lists(), filter] as const,
+  details: () => [...invoicesKeys.all, 'detail'] as const,
+  detail: (id: string) => [...invoicesKeys.details(), id] as const,
 }
 
 /** Talks to apps/api/src/modules/billing/invoices.routes.ts. */
 export const invoicesApi = {
-  list(customerId?: string): Promise<Invoice[]> {
-    const qs = customerId ? `?customerId=${encodeURIComponent(customerId)}` : ''
-    return apiRequest<Invoice[]>(`/invoices${qs}`)
+  list(filter: InvoiceListFilter = {}): Promise<Invoice[]> {
+    return apiRequest<Invoice[]>(`/invoices${buildQueryString(filter)}`)
+  },
+  get(id: string): Promise<Invoice> {
+    return apiRequest<Invoice>(`/invoices/${id}`)
   },
   create(input: CreateInvoiceInput, idempotencyKey: string): Promise<Invoice> {
     return apiRequest<Invoice>('/invoices', { method: 'POST', body: JSON.stringify(input), idempotencyKey })

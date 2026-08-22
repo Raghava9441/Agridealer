@@ -94,7 +94,11 @@
     "title": "Products",
     "description": "Your catalogue of seeds, fertilizers, and pesticides.",
     "notBuiltTitle": "Product catalogue UI not built yet",
-    "notBuiltDescription": "The backend API is ready (create/list/edit products, batch stock). This screen follows once built, using the same pattern as Customers."
+    "notBuiltDescription": "The backend API is ready (create/list/edit products, batch stock). This screen follows once built, using the same pattern as Customers.",
+    "createSuccess": "Product created",
+    "createError": "Could not create product",
+    "updateSuccess": "Product updated",
+    "updateError": "Could not update product"
   },
   "inventory": {
     "title": "Inventory",
@@ -106,7 +110,23 @@
     "title": "Purchases",
     "description": "Purchase orders and goods received from vendors.",
     "notBuiltTitle": "Purchases UI not built yet",
-    "notBuiltDescription": "The backend API is ready and tested (vendors, purchase orders, goods receipts). Vendor bills/payments are not built on the backend yet."
+    "notBuiltDescription": "The backend API is ready and tested (vendors, purchase orders, goods receipts). Vendor bills/payments are not built on the backend yet.",
+    "vendors": {
+      "createSuccess": "Vendor created",
+      "createError": "Could not create vendor",
+      "updateSuccess": "Vendor updated",
+      "updateError": "Could not update vendor"
+    },
+    "orders": {
+      "createSuccess": "Purchase order created",
+      "createError": "Could not create purchase order",
+      "cancelSuccess": "Purchase order cancelled",
+      "cancelError": "Could not cancel purchase order"
+    },
+    "receipts": {
+      "createSuccess": "Goods receipt recorded",
+      "createError": "Could not record goods receipt"
+    }
   },
   "billing": {
     "title": "Billing",
@@ -160,7 +180,11 @@
     "title": "Farmer Credit Book",
     "description": "Customer balances and payment history.",
     "notBuiltTitle": "Ledger/ageing UI not built yet",
-    "notBuiltDescription": "Recording a payment is fully built (see Billing → invoice history). A dedicated statement/ageing view isn't — no ageing-bucket rule exists yet."
+    "notBuiltDescription": "Recording a payment is fully built (see Billing → invoice history). A dedicated statement/ageing view isn't — no ageing-bucket rule exists yet.",
+    "payments": {
+      "recordSuccess": "Payment recorded",
+      "recordError": "Could not record payment"
+    }
   },
   "expenses": {
     "title": "Expenses",
@@ -198,6 +222,10 @@
       "pincode": "Pincode",
       "saveSuccess": "Business profile saved",
       "saveError": "Could not save business profile"
+    },
+    "users": {
+      "createSuccess": "Staff account created",
+      "createError": "Could not create staff account"
     }
   }
 }
